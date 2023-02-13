@@ -11,6 +11,8 @@ public class Main {
         if ( !daoFactory.isClosed() ) {
             System.out.println("Connected Successfully!");
         }
+        SectionDAO test = daoFactory.getSectionDAO();
+        test.find(1, "MU", "113");
         
     }
     
