@@ -12,7 +12,10 @@ public class Main {
             System.out.println("Connected Successfully!");
         }
         SectionDAO test = daoFactory.getSectionDAO();
-        test.find(1, "MU", "113");
+        RegistrationDAO test2 = daoFactory.getRegistrationDAO();
+        //test.find(1, "MU", "113");
+        //test2.create(1, 1, 20001);
+        test2.delete(1, 1, 20001);
         
     }
     

@@ -7,11 +7,8 @@ import java.sql.ResultSetMetaData;
 
 public class SectionDAO {
     
-    // INSERT YOUR CODE HERE
-    private static final String QUERY_FIND = "SELECT * FROM section s WHERE termid = ? AND subjectid = ? AND num = ?";
-    //private static final String QUERY_FIND = "SELECT * FROM section WHERE termid = ?";
+    private static final String QUERY_FIND = "SELECT * FROM section s WHERE termid = ? AND subjectid = ? AND num = ? ORDER BY crn";
 
-    
     private final DAOFactory daoFactory;
     
     SectionDAO(DAOFactory daoFactory) {
@@ -33,29 +30,18 @@ public class SectionDAO {
             
             if (conn.isValid(0)) {
                 
-                // INSERT YOUR CODE HERE
                 ps = conn.prepareStatement(QUERY_FIND);
                 ps.setInt(1, termid);
                 ps.setString(2, subjectid);
                 ps.setString(3, num);
-                //System.out.println("Test");
                 
                 boolean hasresults = ps.execute();
                 
                 if (hasresults) {
-
+                    
                     rs = ps.getResultSet();
-                    ResultSetMetaData mData = rs.getMetaData();
-                    int length = mData.getColumnCount();
-                    String line = mData.getColumnName(1);
-
-                    for(int i = 1; i < length + 1; i++) {
-                        line = mData.getColumnName(i);
-                        //System.out.println(line);
-                    }
-                    while(rs.next())
-                        //System.out.println(rs.getString("crn"));
                     result = util.getResultSetAsJson(rs);
+                    
                 }
                 
             }
