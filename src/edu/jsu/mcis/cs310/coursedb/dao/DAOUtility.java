@@ -25,13 +25,7 @@ public class DAOUtility {
                     for(int i = 0; i < columnNumber; i++) {
                         String column = header.getColumnName(i + 1);
 
-                        //Selection is needed because termid needs to retain int type.
-                        if(column.endsWith("termid")) {
-                            line.put(column,(int)rs.getInt(column));
-                        }
-
-                        else
-                            line.put(column, rs.getString(column));                        
+                        line.put(column, rs.getString(column));                        
                     }
                     records.add(line);  //Each index is Json Object.
                 }
