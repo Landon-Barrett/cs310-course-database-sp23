@@ -13,9 +13,11 @@ public class Main {
         }
         SectionDAO test = daoFactory.getSectionDAO();
         RegistrationDAO test2 = daoFactory.getRegistrationDAO();
-        //test.find(1, "MU", "113");
+        test.find(1, "MU", "113");
         //test2.create(1, 1, 20001);
-        test2.delete(1, 1, 20001);
+        //test2.create(1, 1, 20002);
+        test2.delete(1, 1);
+        //System.out.println(test2.list(1, 1));
         
     }
     

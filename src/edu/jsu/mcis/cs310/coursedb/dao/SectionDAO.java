@@ -7,7 +7,7 @@ import java.sql.ResultSetMetaData;
 
 public class SectionDAO {
     
-    private static final String QUERY_FIND = "SELECT * FROM section s WHERE termid = ? AND subjectid = ? AND num = ? ORDER BY crn";
+    private static final String QUERY_FIND = "SELECT * FROM section WHERE termid = ? AND subjectid = ? AND num = ? ORDER BY crn";
 
     private final DAOFactory daoFactory;
     

@@ -27,7 +27,7 @@ public class DAOUtility {
 
                         //Selection is needed because termid needs to retain int type.
                         if(column.endsWith("termid")) {
-                            line.put(column,rs.getInt(column));
+                            line.put(column,(int)rs.getInt(column));
                         }
 
                         else
@@ -35,7 +35,9 @@ public class DAOUtility {
                     }
                     records.add(line);  //Each index is Json Object.
                 }
-                System.out.println(records);
+                //JsonObject line = new JsonObject();
+                //line = (JsonObject)records.get(0);
+                //System.out.println((line.get("termid")).getClass());
             }
         }
         
