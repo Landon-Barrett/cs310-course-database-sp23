@@ -8,37 +8,46 @@ public class DAOUtility {
     
     public static final int TERMID_SP23 = 1;
     
-    //This method takes result set as input and converts it to Json Array.
+    //This method takes result set as input and converts it to JsonArray of JsonObjects.
     public static String getResultSetAsJson(ResultSet rs) {
         
         JsonArray records = new JsonArray();
 
         try {
+            
             if (rs != null) {
-                ResultSetMetaData header = rs.getMetaData();
-                
+                                
                 //Iterate through result set and add values to map.
-                while(rs.next()) {
+                while(rs.next()) {  //Gets Row
+                    
                     JsonObject line = new JsonObject();
                     
+                    ResultSetMetaData header = rs.getMetaData();
                     int columnNumber = header.getColumnCount();
-                    for(int i = 0; i < columnNumber; i++) {
-                        String column = header.getColumnName(i + 1);
+                    
+                    for(int i = 0; i < columnNumber; i++) {  //Gets column.
+                        
+                        String column = header.getColumnName(i + 1);  //Header starts at index 1 hence i + 1.
+                        String value = rs.getString(column);
 
-                        line.put(column, rs.getString(column));                        
+                        line.put(column, value);
+                        
                     }
+                    
                     records.add(line);  //Each index is Json Object.
+                    
                 }
-                //JsonObject line = new JsonObject();
-                //line = (JsonObject)records.get(0);
-                //System.out.println((line.get("termid")).getClass());
+
             }
+            
         }
         
         catch (Exception e) {
             e.printStackTrace();
         }
         
-        return Jsoner.serialize(records);   
+        return Jsoner.serialize(records);  
+        
     }
+    
 }

@@ -1,3 +1,10 @@
+/*
+Submitted by: Landon Barrett
+Date: 02/16/23
+CS: 310-001
+Problem Summary: Complete a program that involves interacting with a SQL
+database. 
+*/
 package edu.jsu.mcis.cs310.coursedb;
 
 import edu.jsu.mcis.cs310.coursedb.dao.*;
@@ -11,13 +18,6 @@ public class Main {
         if ( !daoFactory.isClosed() ) {
             System.out.println("Connected Successfully!");
         }
-        SectionDAO test = daoFactory.getSectionDAO();
-        RegistrationDAO test2 = daoFactory.getRegistrationDAO();
-        test.find(1, "MU", "113");
-        //test2.create(1, 1, 20001);
-        //test2.create(1, 1, 20002);
-        test2.delete(1, 1);
-        //System.out.println(test2.list(1, 1));
         
     }
     

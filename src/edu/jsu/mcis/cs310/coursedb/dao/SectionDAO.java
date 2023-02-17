@@ -10,7 +10,7 @@ public class SectionDAO {
     private static final String QUERY_FIND = "SELECT * FROM section WHERE termid = ? AND subjectid = ? AND num = ? ORDER BY crn";
 
     private final DAOFactory daoFactory;
-    
+        
     SectionDAO(DAOFactory daoFactory) {
         this.daoFactory = daoFactory;
     }
@@ -22,7 +22,6 @@ public class SectionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         ResultSetMetaData rsmd = null;
-        DAOUtility util = new DAOUtility();
         
         try {
             
@@ -40,14 +39,14 @@ public class SectionDAO {
                 if (hasresults) {
                     
                     rs = ps.getResultSet();
-                    result = util.getResultSetAsJson(rs);
+                    result = DAOUtility.getResultSetAsJson(rs);
                     
                 }
                 
             }
             
         }
-        
+            
         catch (Exception e) { e.printStackTrace(); }
         
         finally {
