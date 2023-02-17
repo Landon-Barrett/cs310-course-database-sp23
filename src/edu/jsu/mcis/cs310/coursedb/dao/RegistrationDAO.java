@@ -3,7 +3,6 @@ package edu.jsu.mcis.cs310.coursedb.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 
 public class RegistrationDAO {
     
@@ -141,8 +140,6 @@ public class RegistrationDAO {
         
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ResultSetMetaData rsmd = null;
-        DAOUtility util = new DAOUtility();
         
         try {
             
@@ -159,7 +156,7 @@ public class RegistrationDAO {
                 if (hasresults) {
                     
                     rs = ps.getResultSet();
-                    result = util.getResultSetAsJson(rs);
+                    result = DAOUtility.getResultSetAsJson(rs);
                     
                 }
                 

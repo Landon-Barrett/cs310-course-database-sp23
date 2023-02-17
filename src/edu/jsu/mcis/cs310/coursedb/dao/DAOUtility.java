@@ -2,7 +2,6 @@ package edu.jsu.mcis.cs310.coursedb.dao;
 
 import java.sql.*;
 import com.github.cliftonlabs.json_simple.*;
-import java.util.ArrayList;
 
 public class DAOUtility {
     

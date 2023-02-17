@@ -3,7 +3,6 @@ package edu.jsu.mcis.cs310.coursedb.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 
 public class SectionDAO {
     
@@ -21,7 +20,6 @@ public class SectionDAO {
         
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ResultSetMetaData rsmd = null;
         
         try {
             
